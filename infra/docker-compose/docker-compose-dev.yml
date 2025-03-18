@@ -29,7 +29,6 @@ services:
       timeout: 10s
       retries: 10
 
-
   redis:
     image: redis:7.4.2 # Same version as prod
     ports:
@@ -59,7 +58,7 @@ services:
     # If you want to expose these ports outside your dev PC,
     # remove the "127.0.0.1:" prefix
     ports:
-      - 9080:9080
+      - 9080:9080 
       - 9443:9443
     healthcheck:
       test: 'bash /opt/keycloak/health-check.sh'
@@ -100,8 +99,8 @@ services:
       - SPRING_LIQUIBASE_URL=jdbc:mysql://mysql:3306/apigateway?useUnicode=true&characterEncoding=utf8&useSSL=false&createDatabaseIfNotExist=true
       - SPRING_ELASTICSEARCH_URIS=http://elasticsearch:9200
       - JHIPSTER_CACHE_REDIS_SERVER=redis://redis:6379
-      - SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_OIDC_ISSUER_URI=http://keycloak:9080/realms/jhipster
-      - JHIPSTER_SECURITY_OAUTH2_AUTH_SERVER_URL=http://keycloak:9080
+      - SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_OIDC_ISSUER_URI=http://172.20.0.7:9080/realms/jhipster
+      - JHIPSTER_SECURITY_OAUTH2_AUTH_SERVER_URL=http://172.20.0.7:9080
       - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:29092
     ports:
       - "8080:8080"
