@@ -13,3 +13,6 @@ kubectl rollout restart deployment/apigateway -n bookstore
 kubectl get pods -n bookstore
 
 kubectl port-forward svc/keycloak 9080:9080 -n bookstore
+
+minikube delete 
+minikube start
