@@ -5,9 +5,15 @@
         "**/.git": true,
         "**/.svn": true,
         "**/.hg": true,
-        "**/CVS": true,
         "**/.DS_Store": true,
         "**/Thumbs.db": true,
+        ".gitignore": false,
+        ".vscode": true,
+        "**/.classpath": false,
+        "**/.factorypath": false,
+        "**/.project": false,
+        "**/.settings": false,
+        "**/CVS": true,
         "**/*.git": true
     },
     "explorerExclude.backup": {}

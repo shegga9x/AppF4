@@ -123,19 +123,19 @@ services:
       elasticsearch:
         condition: service_healthy
 
-  myservice2:
-    image: myservice2
-    environment:
-      - SPRING_PROFILES_ACTIVE=prod,api-docs
-      - SPRING_CLOUD_CONSUL_HOST=consul
-      - SPRING_CLOUD_CONSUL_PORT=8500
-      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/myservice2?useUnicode=true&characterEncoding=utf8&useSSL=false
-      - SPRING_LIQUIBASE_URL=jdbc:mysql://mysql:3306/myservice2?useUnicode=true&characterEncoding=utf8&useSSL=false
-      - SPRING_ELASTICSEARCH_URIS=http://elasticsearch:9200
-      - JHIPSTER_CACHE_REDIS_SERVER=redis://redis:6379
-      - SPRING_CLOUD_STREAM_KAFKA_BINDER_BROKERS=kafka:9092
-    depends_on:
-      mysql:
-        condition: service_healthy
-      elasticsearch:
-        condition: service_healthy
+  # myservice2:
+  #   image: myservice2
+  #   environment:
+  #     - SPRING_PROFILES_ACTIVE=prod,api-docs
+  #     - SPRING_CLOUD_CONSUL_HOST=consul
+  #     - SPRING_CLOUD_CONSUL_PORT=8500
+  #     - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/myservice2?useUnicode=true&characterEncoding=utf8&useSSL=false
+  #     - SPRING_LIQUIBASE_URL=jdbc:mysql://mysql:3306/myservice2?useUnicode=true&characterEncoding=utf8&useSSL=false
+  #     - SPRING_ELASTICSEARCH_URIS=http://elasticsearch:9200
+  #     - JHIPSTER_CACHE_REDIS_SERVER=redis://redis:6379
+  #     - SPRING_CLOUD_STREAM_KAFKA_BINDER_BROKERS=kafka:9092
+  #   depends_on:
+  #     mysql:
+  #       condition: service_healthy
+  #     elasticsearch:
+  #       condition: service_healthy
