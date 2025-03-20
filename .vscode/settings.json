@@ -16,5 +16,6 @@
         "**/CVS": true,
         "**/*.git": true
     },
-    "explorerExclude.backup": {}
+    "explorerExclude.backup": {},
+    "java.debug.settings.onBuildFailureProceed": true
 }
