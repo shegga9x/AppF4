@@ -1,103 +1,605 @@
-use user_db;
 BEGIN;
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (1, 'Tim Mathieu', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/28.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (2, 'Zeynab Bobeldijk', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/44.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (3, 'Ceyhun Erbay', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/21.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (4, 'Joshua Mitchell', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/65.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (5, 'Harper Roy', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/63.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (6, 'Hannah Lo', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/61.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (7, 'Nicolas Tveiten', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/7.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (8, 'Kylian Moreau', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/53.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (9, 'Rui Pierre', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/36.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (10, 'Edna Rose', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/13.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (11, 'Ivy Moore', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/24.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (12, 'Gaston De Best', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/16.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (13, 'Daniel Janson', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/81.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (14, 'Cathrin Haller', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/36.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (15, 'Christian Rose', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/98.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (16, 'Sonia Gilbert', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/26.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (17, 'Latife Kulaksızoğlu', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/90.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (18, 'June Skotte', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/33.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (19, 'Karina Lukashevichi', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/87.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (20, 'Marija Vilotić', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/82.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (21, 'Amanda Hayes', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/49.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (22, 'Leonie Deutsch', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/26.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (23, 'Lily Evans', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/26.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (24, 'Svetislav Ivanić', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/92.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (25, 'Géraldine Lefebvre', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/30.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (26, 'Nooa Halko', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/46.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (27, 'Panas Kurchenko', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/82.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (28, 'Nicolas Lavoie', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/82.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (29, 'Kate Singh', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/2.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (30, 'Rachel Price', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/27.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (31, 'Jeremy Brown', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/99.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (32, 'Slavko Sakić', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/3.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (33, 'Maruta Sushinskiy', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/70.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (34, 'Lenni Lehtonen', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/55.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (35, 'Darja Lammerse', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/70.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (36, 'Onur Yazıcı', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/92.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (37, 'Adrian Huynh', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/98.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (38, 'Joanikije Anđelković', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/23.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (39, 'هستی موسوی', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/71.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (40, 'Gerardo Benítez', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/91.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (41, 'Mark Børseth', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/3.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (42, 'Marilei Melo', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/18.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (43, 'Michelle Bradley', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/41.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (44, 'محمدعلی صدر', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/31.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (45, 'Maddison Daniels', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/58.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (46, 'Laurie Jean-Baptiste', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/81.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (47, 'Cathérine Van Ramshorst', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/15.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (48, 'Cohen Chen', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/66.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (49, 'Gerolf Nußbaum', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/48.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (50, 'Mille Sørensen', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/32.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (51, 'Gilberto Uribe', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/40.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (52, 'Evie Thompson', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/96.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (53, 'Rufina Dovgopoliy', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/40.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (54, 'Benjamin Thompson', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/23.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (55, 'Raymond Neal', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/93.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (56, 'Afet Kuday', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/26.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (57, 'Alexis Boyer', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/51.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (58, 'Deniz Özberk', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/88.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (59, 'Marisa Leclerc', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/20.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (60, 'زهرا رضایی', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/33.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (61, 'ماهان حیدری', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/39.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (62, 'Gerardo Crespo', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/87.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (63, 'Eva Ribeiro', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/55.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (64, 'Hetal Pai', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/49.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (65, 'Gerardo Moya', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/86.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (66, 'Alejandro Zamora', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/27.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (67, 'Kerim Topaloğlu', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/61.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (68, 'Aldin Jackson', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/68.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (69, 'اميرحسين حسینی', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/97.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (70, 'Aribert Jordan', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/52.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (71, 'Vicente Rodríguez', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/52.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (72, 'Felix Hansen', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/80.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (73, 'Francisca Román', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/7.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (74, 'Margot Blanchard', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/58.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (75, 'Alessio Dumas', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/13.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (76, 'Edwin Dean', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/72.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (77, 'Esma Çamdalı', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/95.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (78, 'Karla Petersen', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/77.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (79, 'Bianca Rendón', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/7.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (80, 'Fatma Tanrıkulu', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/58.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (81, 'Juliette Jones', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/25.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (82, 'Alexandra Smith', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/54.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (83, 'Ratimir Zelinskiy', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/50.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (84, 'Tessa Caron', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/18.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (85, 'Arianna Johnson', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/89.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (86, 'Raimond Neefjes', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/36.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (87, 'Viljami Manninen', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/53.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (88, 'Areke Voorn', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/49.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (89, 'Rosina Pasichnik', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/37.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (90, 'Tilde Jørgensen', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/13.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (91, 'Stella Ellis', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/5.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (92, 'Veselan Gribovskiy', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/43.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (93, 'Tino Blanchard', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/52.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (94, 'Jessica Evans', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/27.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (95, 'Camilo Lira', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/22.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (96, 'سارینا سالاری', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/50.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (97, 'Erik Hawkins', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/28.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (98, 'Cheslav Krikun', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/15.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (99, 'عسل جعفری', 'This is a sample bio.', 'https://randomuser.me/api/portraits/women/35.jpg', 'active');
-INSERT INTO profiles (user_id, full_name, bio, profile_picture, status) VALUES (100, 'Francisco de Borja Sales', 'This is a sample bio.', 'https://randomuser.me/api/portraits/men/47.jpg', 'active');
-COMMIT;
+
+    INSERT INTO roles (name) VALUES ('admin'), ('user'), ('moderator')
+    ON DUPLICATE KEY UPDATE name = name;
+    
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('nathan.burton@example.com', NULL, 'local', NULL, FALSE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('samson.olaisen@example.com', NULL, 'github', 'github_124448', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('miodrag.vasic@example.com', NULL, 'local', NULL, FALSE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('faustine.marchand@example.com', NULL, 'facebook', 'facebook_348071', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('gul.dalkiran@example.com', NULL, 'facebook', 'facebook_837401', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('alma.candelaria@example.com', NULL, 'google', 'google_796711', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('lucie.renard@example.com', NULL, 'google', 'google_391995', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('stephanie.lucas@example.com', NULL, 'local', NULL, FALSE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('ken.graham@example.com', NULL, 'google', 'google_810559', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('victoria.kowalski@example.com', NULL, 'facebook', 'facebook_608469', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('mia.perez@example.com', NULL, 'facebook', 'facebook_712413', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('malathy.ramesh@example.com', NULL, 'google', 'google_794079', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('rh.shylyrd@example.com', NULL, 'facebook', 'facebook_773576', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('roland.gardner@example.com', NULL, 'google', 'google_886375', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('murat.eksioglu@example.com', NULL, 'facebook', 'facebook_737758', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('volkan.toraman@example.com', NULL, 'facebook', 'facebook_661020', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('christian.alvarez@example.com', NULL, 'facebook', 'facebook_227661', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('frederique.abels@example.com', NULL, 'github', 'github_807572', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('maria.edwards@example.com', NULL, 'github', 'github_943278', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('joel.kari@example.com', NULL, 'github', 'github_760273', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('emmie.schmitt@example.com', NULL, 'google', 'google_122897', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('ard.hydry@example.com', NULL, 'github', 'github_219515', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('axelle.philippe@example.com', NULL, 'github', 'github_397679', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('raquel.rios@example.com', NULL, 'local', NULL, FALSE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('isaltino.pires@example.com', NULL, 'local', NULL, FALSE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('bhrh.khrymy@example.com', NULL, 'local', NULL, FALSE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('agafonika.yarmolyuk@example.com', NULL, 'local', NULL, FALSE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('mhrs.mwswy@example.com', NULL, 'google', 'google_380789', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('daniel.andersen@example.com', NULL, 'local', NULL, FALSE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('glikeriya.antonenko@example.com', NULL, 'facebook', 'facebook_696470', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('vanessa.williams@example.com', NULL, 'github', 'github_889754', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('aurelien.michel@example.com', NULL, 'facebook', 'facebook_950489', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('muna.sijtsema@example.com', NULL, 'google', 'google_483846', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('prmys.glshn@example.com', NULL, 'local', NULL, FALSE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('eva.white@example.com', NULL, 'github', 'github_150299', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('abdullahi.skogen@example.com', NULL, 'facebook', 'facebook_697530', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('carolina.serrano@example.com', NULL, 'facebook', 'facebook_352013', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('gilbert.burke@example.com', NULL, 'facebook', 'facebook_272076', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('rene.vandenijssel@example.com', NULL, 'local', NULL, FALSE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('radojko.danilovic@example.com', NULL, 'facebook', 'facebook_233905', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('jose.richardson@example.com', NULL, 'google', 'google_253594', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('ayse.tazegul@example.com', NULL, 'local', NULL, FALSE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('virgil.ray@example.com', NULL, 'local', NULL, FALSE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('albert.thomsen@example.com', NULL, 'local', NULL, FALSE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('hashim.vanbeeck@example.com', NULL, 'facebook', 'facebook_555550', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('isaias.fernandes@example.com', NULL, 'facebook', 'facebook_198196', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('ailo.haarr@example.com', NULL, 'facebook', 'facebook_806940', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('marie.perez@example.com', NULL, 'google', 'google_545483', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('daniel.dejesus@example.com', NULL, 'google', 'google_883814', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('jorg-peter.pecher@example.com', NULL, 'google', 'google_731699', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('ines.freyer@example.com', NULL, 'github', 'github_258730', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('pamela.guevara@example.com', NULL, 'local', NULL, FALSE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('saloni.shah@example.com', NULL, 'github', 'github_484567', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('octavio.velasquez@example.com', NULL, 'facebook', 'facebook_173520', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('armyt.kmyrn@example.com', NULL, 'github', 'github_168157', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('isaac.melgar@example.com', NULL, 'google', 'google_343597', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('andrea.morel@example.com', NULL, 'facebook', 'facebook_643946', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('svitlana.kashchuk@example.com', NULL, 'facebook', 'facebook_707794', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('ceylan.dizdar@example.com', NULL, 'facebook', 'facebook_677072', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('heidrun.rettig@example.com', NULL, 'facebook', 'facebook_547239', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('ben.edwards@example.com', NULL, 'github', 'github_201289', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('debbie.hughes@example.com', NULL, 'google', 'google_467033', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('jamie.brooks@example.com', NULL, 'local', NULL, FALSE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('ella.ma@example.com', NULL, 'facebook', 'facebook_198347', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('olimpia.melo@example.com', NULL, 'google', 'google_922555', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('ludmilla.kiesel@example.com', NULL, 'github', 'github_290551', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('aymeric.philippe@example.com', NULL, 'google', 'google_509469', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('silje.moller@example.com', NULL, 'local', NULL, FALSE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('scarlett.harris@example.com', NULL, 'local', NULL, FALSE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('vilma.oja@example.com', NULL, 'google', 'google_543181', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('frederikke.nielsen@example.com', NULL, 'local', NULL, FALSE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('charlene.nguyen@example.com', NULL, 'google', 'google_892654', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('aubrey.gagne@example.com', NULL, 'google', 'google_238371', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('adolfo.benitez@example.com', NULL, 'google', 'google_338835', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('sophie.holmes@example.com', NULL, 'github', 'github_205471', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('sofia.campbell@example.com', NULL, 'google', 'google_720250', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('juanmanuel.burgos@example.com', NULL, 'local', NULL, FALSE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('bilal.linge@example.com', NULL, 'github', 'github_114349', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('claudia.guzman@example.com', NULL, 'github', 'github_244295', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('elizabeth.stephens@example.com', NULL, 'local', NULL, FALSE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('zeloi.damata@example.com', NULL, 'facebook', 'facebook_392692', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('clifton.stanley@example.com', NULL, 'github', 'github_574891', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('ruzica.dokic@example.com', NULL, 'facebook', 'facebook_590896', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('silvano.calvillo@example.com', NULL, 'github', 'github_614170', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('wilhelmus.moeskops@example.com', NULL, 'google', 'google_267299', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('blanca.santiago@example.com', NULL, 'github', 'github_710966', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('elissa.heusinkveld@example.com', NULL, 'facebook', 'facebook_582474', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('ivan.arce@example.com', NULL, 'facebook', 'facebook_332605', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('sara.payne@example.com', NULL, 'local', NULL, FALSE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('juan.guerrero@example.com', NULL, 'facebook', 'facebook_585043', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('ilias.kee@example.com', NULL, 'facebook', 'facebook_106370', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('vicente.pedroza@example.com', NULL, 'github', 'github_481226', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('jayden.roberts@example.com', NULL, 'google', 'google_900324', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('juana.serrano@example.com', NULL, 'local', NULL, FALSE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('pedro.santana@example.com', NULL, 'github', 'github_847797', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('nedan.gomenyuk@example.com', NULL, 'github', 'github_590862', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('ibrahim.overland@example.com', NULL, 'local', NULL, FALSE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('umut.dogan@example.com', NULL, 'github', 'github_606931', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('emma.chu@example.com', NULL, 'facebook', 'facebook_517582', TRUE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        
+        INSERT INTO users (email, password_hash, oauth_provider, oauth_id, email_verified)
+        VALUES ('gerry.cunningham@example.com', NULL, 'local', NULL, FALSE);
+        
+        INSERT INTO user_roles (user_id, role_id)
+        VALUES (LAST_INSERT_ID(), (SELECT id FROM roles WHERE name = 'user' LIMIT 1));
+        COMMIT;
