@@ -8,7 +8,7 @@ services:
       - MYSQL_DATABASE=bookstore
     command: mysqld --lower_case_table_names=1 --skip-mysqlx --character_set_server=utf8mb4 --explicit_defaults_for_timestamp
     ports:
-      - "3307:3306"
+      - "3306:3306"
     healthcheck:
       test: [ 'CMD-SHELL', 'mysql -e "SHOW DATABASES;" && sleep 5' ]
       interval: 5s
@@ -35,10 +35,18 @@ services:
       - "6379:6379"
 
   consul:
-    image: bitnami/consul:1.20.2 # Same version as prod
+    image: bitnami/consul:1.20.2  # Ensure compatibility with prod
+    container_name: consul
+    # network_mode: "host"  # Allows services outside Docker to register
+    # environment:
+    #   - CONSUL_BIND_INTERFACE=eth0
+    #   - CONSUL_CLIENT_INTERFACE=eth0
+    #   - CONSUL_ALLOW_PRIVILEGED_PORTS=true
+    restart: unless-stopped
     command: consul agent -dev -ui -client 0.0.0.0 -log-level=INFO
     ports:
       - "8500:8500"
+      - "8600:8600/udp"  # DNS resolution for service discovery
 
   keycloak:
     image: quay.io/keycloak/keycloak:26.1.1
@@ -69,6 +77,17 @@ services:
       start_period: 10s
     labels:
       org.springframework.boot.ignore: true
+  
+  kafdrop:
+    image: obsidiandynamics/kafdrop:latest
+    container_name: kafdrop
+    restart: always
+    depends_on:
+      - kafka
+    environment:
+      KAFKA_BROKERCONNECT: kafka:29092
+    ports:
+      - "9000:9000"
 
   kafka:
     image: apache/kafka-native:3.9.0
@@ -91,6 +110,7 @@ services:
   apigateway:
     image: apigateway
     environment:
+      - JHIPSTER_APP_NAME=ApiGatewayApp
       - _JAVA_OPTIONS=-Xmx512m -Xms256m
       - SPRING_PROFILES_ACTIVE=dev,api-docs
       - SPRING_CLOUD_CONSUL_HOST=consul
@@ -99,20 +119,23 @@ services:
       - SPRING_LIQUIBASE_URL=jdbc:mysql://mysql:3306/apigateway?useUnicode=true&characterEncoding=utf8&useSSL=false&createDatabaseIfNotExist=true
       - SPRING_ELASTICSEARCH_URIS=http://elasticsearch:9200
       - JHIPSTER_CACHE_REDIS_SERVER=redis://redis:6379
-      - SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_OIDC_ISSUER_URI=http://172.20.0.7:9080/realms/jhipster
-      - JHIPSTER_SECURITY_OAUTH2_AUTH_SERVER_URL=http://172.20.0.7:9080
       - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:29092
     ports:
       - "8080:8080"
+    entrypoint: ["/bin/sh", "-c", "chmod +x /start.sh && /start.sh"]
+    volumes:
+      - ./start.sh:/start.sh
     depends_on:
       mysql:
         condition: service_healthy
       elasticsearch:
         condition: service_healthy
-
+      keycloak:
+        condition: service_healthy
   myservice1:
     image: myservice1
     environment:
+      - JHIPSTER_APP_NAME=MyService1App
       - SPRING_PROFILES_ACTIVE=dev,api-docs
       - SPRING_CLOUD_CONSUL_HOST=consul
       - SPRING_CLOUD_CONSUL_PORT=8500
@@ -120,13 +143,42 @@ services:
       - SPRING_LIQUIBASE_URL=jdbc:mysql://mysql:3306/apigateway?useUnicode=true&characterEncoding=utf8&useSSL=false&createDatabaseIfNotExist=true
       - SPRING_ELASTICSEARCH_URIS=http://elasticsearch:9200
       - JHIPSTER_CACHE_REDIS_SERVER=redis://redis:6379
-      - SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_OIDC_ISSUER_URI=http://keycloak:9080/realms/jhipster
-      - JHIPSTER_SECURITY_OAUTH2_AUTH_SERVER_URL=http://keycloak:9080
       - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:29092
     ports:
       - 8081:8081
+    entrypoint: ["/bin/sh", "-c", "chmod +x /start.sh && /start.sh"]
+    volumes:
+      - ./start.sh:/start.sh   
     depends_on:
       mysql:
         condition: service_healthy
       elasticsearch:
         condition: service_healthy
+      keycloak:
+        condition: service_healthy
+
+  servicetest:
+    image: servicetest
+    environment:
+      - JHIPSTER_APP_NAME=ServiceTestApp
+      - SPRING_PROFILES_ACTIVE=dev,api-docs
+      - SPRING_CLOUD_CONSUL_HOST=consul
+      - SPRING_CLOUD_CONSUL_PORT=8500
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/apigateway?useUnicode=true&characterEncoding=utf8&useSSL=false&createDatabaseIfNotExist=true
+      - SPRING_LIQUIBASE_URL=jdbc:mysql://mysql:3306/apigateway?useUnicode=true&characterEncoding=utf8&useSSL=false&createDatabaseIfNotExist=true
+      - SPRING_ELASTICSEARCH_URIS=http://elasticsearch:9200
+      - JHIPSTER_CACHE_REDIS_SERVER=redis://redis:6379
+      - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:29092
+    ports:
+      - 8083:8083
+    entrypoint: ["/bin/sh", "-c", "chmod +x /start.sh && /start.sh"]
+    volumes:
+      - ./start.sh:/start.sh   
+    depends_on:
+      mysql:
+        condition: service_healthy
+      elasticsearch:
+        condition: service_healthy
+      keycloak:
+        condition: service_healthy
+
