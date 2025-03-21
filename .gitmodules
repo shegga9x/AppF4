@@ -17,3 +17,9 @@
 	path = backend/ms-post
 	url = https://github.com/tranmanhtuong123/mspost.git
 
+[submodule "backend/mscomment"]
+	path = backend/mscomment
+	url = https://github.com/tranmanhtuong123/mscomment.git
+[submodule "backend/mspost"]
+	path = backend/mspost
+	url = https://github.com/tranmanhtuong123/mspost.git
