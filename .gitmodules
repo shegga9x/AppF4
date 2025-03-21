@@ -19,6 +19,6 @@
 [submodule "backend/mscomment"]
 	path = backend/mscomment
 	url = https://github.com/tranmanhtuong123/mscomment.git
-[submodule "backend/mspost"]
-	path = backend/mspost
+[submodule "backend/ms-post"]
+	path = backend/ms-post
 	url = https://github.com/tranmanhtuong123/mspost.git
