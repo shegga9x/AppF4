@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: kafka-log4j
-  namespace: bookstore
+  namespace: f4space
 data:
   tools-log4j.properties: |
     log4j.rootLogger=INFO, stdout

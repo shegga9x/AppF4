@@ -1,0 +1,8 @@
+# This configuration is intended for development purpose, it's **your** responsibility to harden it for production
+name: dev
+services:
+  mysql:
+    image: mysql:9.2.0
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    command: mysqld --lower_case_table_names=1 --skip-mysqlx --character_set_server=utf8mb4 --explicit_defaults_for_timestamp

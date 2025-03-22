@@ -1,15 +1,28 @@
-version: '3.8'
 name: prod
 services:
-  mysql:
-    image: mysql:9.2.0
-    volumes:
-      - ./config/mysql:/etc/mysql/conf.d
+  mysql-apigateway:
+    extends:
+      file: ./docker/mysql.yml
+      service: mysql
+    ports:
+      - "3306:3306"
     environment:
-      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
-    command: mysqld --lower_case_table_names=1 --skip-mysqlx --character_set_server=utf8mb4 --explicit_defaults_for_timestamp
+      MYSQL_DATABASE: apigateway
     healthcheck:
-      test: [ 'CMD-SHELL', 'mysql -e "SHOW DATABASES;" && sleep 5' ]
+      test: [ "CMD-SHELL", "mysql -e 'SHOW DATABASES;' && sleep 5" ]
+      interval: 5s
+      timeout: 10s
+      retries: 10
+  mysql_myservice1:
+    extends:
+      file: ./docker/mysql.yml
+      service: mysql
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_DATABASE: myservice1
+    healthcheck:
+      test: [ "CMD-SHELL", "mysql -e 'SHOW DATABASES;' && sleep 5" ]
       interval: 5s
       timeout: 10s
       retries: 10
@@ -85,15 +98,15 @@ services:
       org.springframework.boot.ignore: true
 
   apigateway:
-    image: apigateway
+    image: shegga/apigateway
     environment:
       - JHIPSTER_APP_NAME=ApiGatewayApp
       - _JAVA_OPTIONS=-Xmx512m -Xms256m
       - SPRING_PROFILES_ACTIVE=prod,api-docs
       - SPRING_CLOUD_CONSUL_HOST=consul
       - SPRING_CLOUD_CONSUL_PORT=8500
-      - SPRING_R2DBC_URL=r2dbc:mysql://mysql:3306/apigateway?useUnicode=true&characterEncoding=utf8&useSSL=false&createDatabaseIfNotExist=true
-      - SPRING_LIQUIBASE_URL=jdbc:mysql://mysql:3306/apigateway?useUnicode=true&characterEncoding=utf8&useSSL=false&createDatabaseIfNotExist=true
+      - SPRING_R2DBC_URL=r2dbc:mysql://mysql-apigateway-apigateway:3306/apigateway?useUnicode=true&characterEncoding=utf8&useSSL=false&createDatabaseIfNotExist=true
+      - SPRING_LIQUIBASE_URL=jdbc:mysql://mysql-apigateway:3306/apigateway?useUnicode=true&characterEncoding=utf8&useSSL=false&createDatabaseIfNotExist=true
       - SPRING_ELASTICSEARCH_URIS=http://elasticsearch:9200
       - JHIPSTER_CACHE_REDIS_SERVER=redis://redis:6379
       - SPRING_CLOUD_STREAM_KAFKA_BINDER_BROKERS=kafka:9092
@@ -105,7 +118,7 @@ services:
     volumes:
       - ./start.sh:/start.sh   
     depends_on:
-      mysql:
+      mysql-apigateway:
         condition: service_healthy
       elasticsearch:
         condition: service_healthy
@@ -116,16 +129,16 @@ services:
       - SPRING_PROFILES_ACTIVE=prod,api-docs
       - SPRING_CLOUD_CONSUL_HOST=consul
       - SPRING_CLOUD_CONSUL_PORT=8500
-      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/bookstore?useUnicode=true&characterEncoding=utf8&useSSL=false&createDatabaseIfNotExist=true
-      - SPRING_LIQUIBASE_URL=jdbc:mysql://mysql:3306/bookstore?useUnicode=true&characterEncoding=utf8&useSSL=false&createDatabaseIfNotExist=true
-      - SPRING_ELASTICSEARCH_URIS=http://elasticsearch:9200
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql_myservice1:3306/myservice1?useUnicode=true&characterEncoding=utf8&useSSL=false&createDatabaseIfNotExist=true
+      - SPRING_LIQUIBASE_URL=jdbc:mysql://mysql_myservice1:3306/myservice1?useUnicode=true&characterEncoding=utf8&useSSL=false&createDatabaseIfNotExist=true
+      # - SPRING_ELASTICSEARCH_URIS=http://elasticsearch:9200
       - JHIPSTER_CACHE_REDIS_SERVER=redis://redis:6379
       - SPRING_CLOUD_STREAM_KAFKA_BINDER_BROKERS=kafka:9092
     ports:
       - 8081:8081
     depends_on:
-      mysql:
+      mysql_myservice1:
         condition: service_healthy
-      elasticsearch:
-        condition: service_healthy
+      # elasticsearch:
+      #   condition: service_healthy
 

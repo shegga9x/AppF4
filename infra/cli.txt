@@ -6,15 +6,15 @@
 
 sudo systemctl stop mysql
 
-kubectl apply -f k8s/
+kubectl apply -f k8s/ --recursive
 
 minikube image load apigateway
 
-kubectl rollout restart deployment/apigateway -n bookstore
+kubectl rollout restart deployment/apigateway -n f4space
 
-kubectl get pods -n bookstore
+kubectl get pods -n f4space
 
-kubectl port-forward svc/keycloak 9080:9080 -n bookstore
+kubectl port-forward svc/keycloak 9080:9080 -n f4space
 
 minikube delete 
 minikube start
