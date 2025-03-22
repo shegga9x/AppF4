@@ -4,3 +4,6 @@
 [submodule "backend/api-gateway"]
 	path = backend/api-gateway
 	url = https://github.com/shegga9x/f4-api-gateway
+[submodule "backend/ms-media"]
+	path = backend/ms-media
+	url = https://github.com/tranmanhtuong123/f4-ms-media.git
