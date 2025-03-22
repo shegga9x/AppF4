@@ -1,8 +1,10 @@
-  ./mvnw -ntp -Pprod verify jib:dockerBuild 
+./mvnw -ntp -Pprod verify jib:dockerBuild 
 
-  ./mvnw
+./mvnw
 
-  ./npmw start
+./npmw start
+
+sudo systemctl stop mysql
 
 kubectl apply -f k8s/
 

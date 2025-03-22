@@ -117,7 +117,7 @@ services:
       - SPRING_CLOUD_CONSUL_PORT=8500
       - SPRING_R2DBC_URL=r2dbc:mysql://mysql:3306/apigateway?useUnicode=true&characterEncoding=utf8&useSSL=false&createDatabaseIfNotExist=true
       - SPRING_LIQUIBASE_URL=jdbc:mysql://mysql:3306/apigateway?useUnicode=true&characterEncoding=utf8&useSSL=false&createDatabaseIfNotExist=true
-      - SPRING_ELASTICSEARCH_URIS=http://elasticsearch:9200
+      # - SPRING_ELASTICSEARCH_URIS=http://elasticsearch:9200
       - JHIPSTER_CACHE_REDIS_SERVER=redis://redis:6379
       - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:29092
     ports:
@@ -128,8 +128,8 @@ services:
     depends_on:
       mysql:
         condition: service_healthy
-      elasticsearch:
-        condition: service_healthy
+      # elasticsearch:
+      #   condition: service_healthy
       keycloak:
         condition: service_healthy
   myservice1:
@@ -156,11 +156,10 @@ services:
         condition: service_healthy
       keycloak:
         condition: service_healthy
-
-  servicetest:
-    image: servicetest
+  servicetest1:
+    image: servicetest1
     environment:
-      - JHIPSTER_APP_NAME=ServiceTestApp
+      - JHIPSTER_APP_NAME=ServiceTest1App
       - SPRING_PROFILES_ACTIVE=dev,api-docs
       - SPRING_CLOUD_CONSUL_HOST=consul
       - SPRING_CLOUD_CONSUL_PORT=8500
