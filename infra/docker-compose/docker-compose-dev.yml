@@ -145,21 +145,21 @@ services:
       keycloak:
         condition: service_healthy
  
-  # myservice1:
-  #   image: myservice1
-  #   environment:
-  #     - JHIPSTER_APP_NAME=MyService1App
-  #     - SPRING_PROFILES_ACTIVE=dev,api-docs
-  #     - SPRING_CLOUD_CONSUL_HOST=consul
-  #     - SPRING_CLOUD_CONSUL_PORT=8500
-  #     - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/apigateway?useUnicode=true&characterEncoding=utf8&useSSL=false&createDatabaseIfNotExist=true
-  #     - SPRING_LIQUIBASE_URL=jdbc:mysql://mysql:3306/apigateway?useUnicode=true&characterEncoding=utf8&useSSL=false&createDatabaseIfNotExist=true
-  #     - JHIPSTER_CACHE_REDIS_SERVER=redis://redis:6379
-  #     - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:29092
-  #   ports:
-  #     - 8081:8081
-  #   depends_on:
-  #     mysql_myservice1:
-  #       condition: service_healthy
-  #     keycloak:
-  #       condition: service_healthy
+  msmedia:
+    image: msmedia
+    environment:
+      - JHIPSTER_APP_NAME=MsMediaApp
+      - SPRING_PROFILES_ACTIVE=dev,api-docs
+      - SPRING_CLOUD_CONSUL_HOST=consul
+      - SPRING_CLOUD_CONSUL_PORT=8500
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/apigateway?useUnicode=true&characterEncoding=utf8&useSSL=false&createDatabaseIfNotExist=true
+      - SPRING_LIQUIBASE_URL=jdbc:mysql://mysql:3306/apigateway?useUnicode=true&characterEncoding=utf8&useSSL=false&createDatabaseIfNotExist=true
+      - JHIPSTER_CACHE_REDIS_SERVER=redis://redis:6379
+      - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:29092
+    ports:
+      - 8081:8081
+    depends_on:
+      mysql_myservice1:
+        condition: service_healthy
+      keycloak:
+        condition: service_healthy
