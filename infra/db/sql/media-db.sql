@@ -46,6 +46,7 @@ CREATE TABLE reactions (
         'like',
         'love',
         'haha',
+        'wow',
         'sad',
         'angry'
     ),
