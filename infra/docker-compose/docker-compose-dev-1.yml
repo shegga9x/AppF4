@@ -6,6 +6,8 @@ services:
       service: mysql
     ports:
       - "3306:3306"
+    volumes:
+      - ./src/data/mysql-apigateway:/var/lib/mysql  # Mounts host's `src/data` to MySQL's data directory
     environment:
       MYSQL_DATABASE: apigateway
     healthcheck:
@@ -20,6 +22,8 @@ services:
       service: mysql
     ports:
       - "3307:3306"
+    volumes:
+      - ./src/data/mysql-msmedia:/var/lib/mysql  # Mounts host's `src/data` to MySQL's data directory
     environment:
       MYSQL_DATABASE: msmedia
     healthcheck:
@@ -75,6 +79,7 @@ services:
       - KC_HTTPS_PORT=9443
       - KC_HEALTH_ENABLED=true
       - KC_HTTP_MANAGEMENT_PORT=9990
+      - KEYCLOAK_FRONTEND_URL=http://localhost:9080
     # If you want to expose these ports outside your dev PC,
     # remove the "127.0.0.1:" prefix
     ports:
