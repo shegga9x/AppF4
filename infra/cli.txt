@@ -17,4 +17,5 @@ kubectl get pods -n f4space
 kubectl port-forward svc/keycloak 9080:9080 -n f4space
 
 minikube delete 
+
 minikube start

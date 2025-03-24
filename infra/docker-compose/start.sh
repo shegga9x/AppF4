@@ -1,8 +1,21 @@
 #!/bin/sh
 
-# Wait for Keycloak container to be reachable
+# Detect if running on Ubuntu (Linux) or Windows (Docker Desktop)
+if [ "$(uname -s)" = "Linux" ]; then
+  echo "Running on Linux (Ubuntu)..."
+  resolve_keycloak_ip() {
+    getent hosts keycloak | awk '{ print $1 }'
+  }
+else
+  echo "Running on Windows (Docker Desktop)..."
+  resolve_keycloak_ip() {
+    nslookup keycloak 2>/dev/null | awk '/Address: / { print $2 }' | tail -n1
+  }
+fi
+
+# Wait for Keycloak to be reachable
 echo "Waiting for Keycloak to be ready..."
-until KEYCLOAK_IP=$(getent hosts keycloak | awk '{ print $1 }') && [ -n "$KEYCLOAK_IP" ]; do
+until KEYCLOAK_IP=$(resolve_keycloak_ip) && [ -n "$KEYCLOAK_IP" ]; do
   echo "Keycloak not available yet. Retrying in 5s..."
   sleep 5
 done
