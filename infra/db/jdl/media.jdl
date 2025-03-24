@@ -1,0 +1,49 @@
+enum ReactionType {
+    LIKE,
+    LOVE,
+    HAHA,
+    WOW,
+    SAD,
+    ANGRY
+}
+
+entity Comments(comments) {
+    userId Long,
+    content String required maxlength(65535),
+    createdAt Instant
+}
+
+entity Posts(posts) {
+    userId Long,
+    content String maxlength(65535),
+    mediaUrl String maxlength(255),
+    isPrivate Boolean,
+    createdAt Instant,
+    updatedAt Instant
+}
+
+entity Reactions(reactions) {
+    userId Long,
+    reactionType ReactionType,
+    createdAt Instant
+}
+
+entity ReportedComments(reported_comments) {
+    reportedBy Long,
+    reason String required maxlength(65535),
+    createdAt Instant
+}
+
+relationship ManyToOne {
+    Comments{post} to Posts,
+    Comments{parentComment} to Comments,
+    Reactions{post} to Posts,
+    Reactions{comment} to Comments,
+    ReportedComments{comment} to Comments
+}
+
+// Options
+service * with serviceClass
+paginate * with pagination
+dto * with mapstruct
+filter *
