@@ -41,6 +41,7 @@ services:
   #     interval: 5s
   #     timeout: 10s
   #     retries: 10
+
   redis:
     image: redis:7.4.2 # Same version as prod
     ports:
@@ -136,9 +137,9 @@ services:
       - JHIPSTER_SECURITY_OAUTH2_AUTH_SERVER_URL=http://172.22.176.1:9080
     ports:
       - "8080:8080"
-    entrypoint: ["/bin/sh", "/start.sh"]
-    volumes:
-      - ./start.sh:/start.sh
+    # entrypoint: ["/bin/sh", "/start.sh"]
+    # volumes:
+    #   - ./start.sh:/start.sh
     depends_on:
       mysql-apigateway:
         condition: service_healthy
@@ -158,15 +159,17 @@ services:
       - SPRING_LIQUIBASE_URL=jdbc:mysql://mysql-msmedia:3306/msmedia?useUnicode=true&characterEncoding=utf8&useSSL=false&createDatabaseIfNotExist=true
       - JHIPSTER_CACHE_REDIS_SERVER=redis://redis:6379
       - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:29092
+      - SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_OIDC_ISSUER_URI=http://172.22.176.1:9080/realms/jhipster
+      - JHIPSTER_SECURITY_OAUTH2_AUTH_SERVER_URL=http://172.22.176.1:9080
     ports:
       - 8081:8081
-    entrypoint: ["/bin/sh", "/start.sh"]
-    volumes:
-      - ./start.sh:/start.sh
+    # entrypoint: ["/bin/sh", "/start.sh"]
+    # volumes:
+    #   - ./start.sh:/start.sh
     depends_on:
       mysql-msmedia:
         condition: service_healthy
       keycloak:
         condition: service_healthy
       consul:
-        condition: service_started # Add this
+        condition: service_started
