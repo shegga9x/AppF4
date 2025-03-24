@@ -41,6 +41,7 @@ services:
       interval: 5s
       timeout: 10s
       retries: 10
+  
   redis:
     image: redis:7.4.2 # Same version as prod
     ports:
@@ -134,7 +135,7 @@ services:
       - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:29092
     ports:
       - "8080:8080"
-    entrypoint: ["/bin/sh", "-c", "chmod +x /start.sh && /start.sh"]
+    entrypoint: ["/bin/sh", "/start.sh"]
     volumes:
       - ./start.sh:/start.sh
     depends_on:
