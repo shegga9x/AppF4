@@ -6,6 +6,8 @@ services:
       service: mysql
     ports:
       - "3306:3306"
+    volumes:
+      - mysql_apigateway_data:/var/lib/mysql  # Mounts host's `src/data` to MySQL's data directory
     environment:
       MYSQL_DATABASE: apigateway
     healthcheck:
@@ -14,34 +16,36 @@ services:
       timeout: 10s
       retries: 10
  
-  mysql_myservice1:
+  mysql-msmedia:
     extends:
       file: ./docker/mysql.yml
       service: mysql
     ports:
       - "3307:3306"
+    volumes:
+      - mysql_msmedia_data:/var/lib/mysql  # Mounts host's `src/data` to MySQL's data directory
     environment:
-      MYSQL_DATABASE: myservice1
+      MYSQL_DATABASE: msmedia
     healthcheck:
       test: [ "CMD-SHELL", "mysql -e 'SHOW DATABASES;' && sleep 5" ]
       interval: 5s
       timeout: 10s
       retries: 10
 
-  elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:8.13.4
-    environment:
-      - discovery.type=single-node
-      - xpack.security.enabled=false
-      - ES_JAVA_OPTS=-Xms256m -Xmx256m
-    ports:
-      - "9200:9200"
-    healthcheck:
-      test: [ 'CMD', 'curl', '-f', 'http://localhost:9200/_cluster/health?wait_for_status=yellow&timeout=10s' ]
-      interval: 5s
-      timeout: 10s
-      retries: 10
-  
+  # elasticsearch:
+  #   image: docker.elastic.co/elasticsearch/elasticsearch:8.13.4
+  #   environment:
+  #     - discovery.type=single-node
+  #     - xpack.security.enabled=false
+  #     - ES_JAVA_OPTS=-Xms256m -Xmx256m
+  #   ports:
+  #     - "9200:9200"
+  #   healthcheck:
+  #     test: [ 'CMD', 'curl', '-f', 'http://localhost:9200/_cluster/health?wait_for_status=yellow&timeout=10s' ]
+  #     interval: 5s
+  #     timeout: 10s
+  #     retries: 10
+
   redis:
     image: redis:7.4.2 # Same version as prod
     ports:
@@ -76,6 +80,7 @@ services:
       - KC_HTTPS_PORT=9443
       - KC_HEALTH_ENABLED=true
       - KC_HTTP_MANAGEMENT_PORT=9990
+      - KEYCLOAK_FRONTEND_URL=http://localhost:9080
     # If you want to expose these ports outside your dev PC,
     # remove the "127.0.0.1:" prefix
     ports:
@@ -133,11 +138,13 @@ services:
       # - SPRING_ELASTICSEARCH_URIS=http://elasticsearch:9200
       - JHIPSTER_CACHE_REDIS_SERVER=redis://redis:6379
       - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:29092
+      - SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_OIDC_ISSUER_URI=http://172.22.176.1:9080/realms/jhipster
+      - JHIPSTER_SECURITY_OAUTH2_AUTH_SERVER_URL=http://172.22.176.1:9080
     ports:
       - "8080:8080"
-    entrypoint: ["/bin/sh", "/start.sh"]
-    volumes:
-      - ./start.sh:/start.sh
+    # entrypoint: ["/bin/sh", "/start.sh"]
+    # volumes:
+    #   - ./start.sh:/start.sh
     depends_on:
       mysql-apigateway:
         condition: service_healthy
@@ -147,20 +154,31 @@ services:
         condition: service_healthy
  
   msmedia:
-    image: msmedia
+    image: tuongtran1345/msmedia
     environment:
       - JHIPSTER_APP_NAME=MsMediaApp
       - SPRING_PROFILES_ACTIVE=dev,api-docs
       - SPRING_CLOUD_CONSUL_HOST=consul
       - SPRING_CLOUD_CONSUL_PORT=8500
-      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/apigateway?useUnicode=true&characterEncoding=utf8&useSSL=false&createDatabaseIfNotExist=true
-      - SPRING_LIQUIBASE_URL=jdbc:mysql://mysql:3306/apigateway?useUnicode=true&characterEncoding=utf8&useSSL=false&createDatabaseIfNotExist=true
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-msmedia:3306/msmedia?useUnicode=true&characterEncoding=utf8&useSSL=false&createDatabaseIfNotExist=true
+      - SPRING_LIQUIBASE_URL=jdbc:mysql://mysql-msmedia:3306/msmedia?useUnicode=true&characterEncoding=utf8&useSSL=false&createDatabaseIfNotExist=true
       - JHIPSTER_CACHE_REDIS_SERVER=redis://redis:6379
       - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:29092
+      - SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_OIDC_ISSUER_URI=http://172.22.176.1:9080/realms/jhipster
+      - JHIPSTER_SECURITY_OAUTH2_AUTH_SERVER_URL=http://172.22.176.1:9080
     ports:
       - 8081:8081
+    # entrypoint: ["/bin/sh", "/start.sh"]
+    # volumes:
+    #   - ./start.sh:/start.sh
     depends_on:
-      mysql_myservice1:
+      mysql-msmedia:
         condition: service_healthy
       keycloak:
         condition: service_healthy
+      consul:
+        condition: service_started
+
+volumes:
+  mysql_msmedia_data:
+  mysql_apigateway_data:
