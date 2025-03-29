@@ -1,3 +1,5 @@
+git submodule update --init --recursive
+
 sudo apt install -y wget apt-transport-https curl gnupg
 wget -O - https://packages.adoptium.net/artifactory/api/gpg/key/public | sudo tee /etc/apt/trusted.gpg.d/adoptium.asc
 echo "deb https://packages.adoptium.net/artifactory/deb $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/adoptium.list
@@ -12,14 +14,13 @@ source ~/.bashrc
 nvm install --lts
 nvm use --lts
 
-npm install -g pnpm
+curl -fsSL https://get.pnpm.io/install.sh | sh
+export PATH="$HOME/.local/share/pnpm:$PATH"
+pnpm -v -->
 
 pnpm config set registry https://registry.npmjs.org/
 
-curl -fsSL https://get.pnpm.io/install.sh | sh
-export PATH="$HOME/.local/share/pnpm:$PATH"
-pnpm -v
-
+cd frontend
 
 corepack enable
 corepack prepare pnpm@latest --activate
