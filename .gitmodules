@@ -1,6 +1,6 @@
 [submodule "microfrontends"]
 	path = microfrontends
-	url = https://github.com/minhhiennn/microfrontends
+	url = https://github.com/minhhiennn/microfrontends.git
 [submodule "backend/api-gateway"]
 	path = backend/api-gateway
 	url = https://github.com/shegga9x/f4-api-gateway
