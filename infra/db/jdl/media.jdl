@@ -9,13 +9,13 @@ enum ReactionType {
 
 entity Comments(comments) {
     userId Long,
-    content String required maxlength(65535),
+    content String maxlength(5000),
     createdAt Instant
 }
 
 entity Posts(posts) {
     userId Long,
-    content String maxlength(65535),
+    content String maxlength(5000),
     mediaUrl String maxlength(255),
     isPrivate Boolean,
     createdAt Instant,
@@ -30,7 +30,7 @@ entity Reactions(reactions) {
 
 entity ReportedComments(reported_comments) {
     reportedBy Long,
-    reason String required maxlength(65535),
+    reason String,
     createdAt Instant
 }
 
@@ -42,7 +42,8 @@ relationship ManyToOne {
     ReportedComments{comment} to Comments
 }
 
-// Options
+// Application-wide options
+dto * with mapstruct
 service * with serviceClass
 paginate * with pagination
 dto * with mapstruct
